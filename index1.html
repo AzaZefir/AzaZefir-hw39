@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hw39</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #color-sample {
+            width: 300px;
+            height: 100px;
+            margin: 30px;
+        }
+
+        p {
+            margin:0 0 0 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="color-sample"></div>
+    <p>Цвет: </p> 
+    <!-- <span id="color-value"></span> -->
+
+
+
+    <script>
+        /*
+        Задание:
+        Поправьте сценарий таким образом, чтобы кроме изменения цвета div#color-sample в параграфе под div 
+        выводилось сообщение
+        Цвет: #000000
+        Где #000000 значение, цвета фона элемента div#color-sample
+        */
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        let colorSampleDiv = document.querySelector("#color-sample");
+        colorSampleDiv.style.backgroundColor = getRandomColor();
+
+        let color = document.querySelector('p');
+        if (colorSampleDiv) {
+            color.innerHTML = `<p>Цвет: ${getRandomColor()}</p>`
+        }
+
+
+        // let colorSampleDiv = document.querySelector("#color-sample");
+        // let colorValueOutput = document.querySelector("#color-value");
+
+        // let colorValue = getRandomColor();
+        // colorSampleDiv.style.backgroundColor = colorValue;
+        // colorValueOutput.textContent = colorValue;
+    </script>
+</body>
+
+</html>
